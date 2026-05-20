@@ -33,29 +33,38 @@ public class CafeGUI extends JFrame {
     welcomePanel.setBackground(new Color(255, 182,193));
 
     
-    ImageIcon logoIcon = new ImageIcon("pineda.png");
-    Image img = logoIcon.getImage().getScaledInstance(75, 75, Image.SCALE_SMOOTH);
+    java.net.URL imgURL = getClass().getResource("logo.png"); 
+    ImageIcon logoIcon;
+
+    if (imgURL != null) {
+        logoIcon = new ImageIcon(imgURL);
+    } else {
+        // Fallback: Ito ang luma mong code kung sakaling hindi mahanap sa package resources
+        logoIcon = new ImageIcon("logo.png");
+    }
+
+    Image img = logoIcon.getImage().getScaledInstance(160, 160, Image.SCALE_SMOOTH);
     logoIcon = new ImageIcon(img);
     JLabel logoLabel = new JLabel(logoIcon);
 
     gbc.gridx = 0; 
     gbc.gridy = 0; 
-    gbc.anchor = GridBagConstraints.NORTHWEST; 
-    gbc.insets = new Insets(0, 10, 20, 20); 
-    gbc.weighty = 0;
-    gbc.weightx = 0;
+    gbc.anchor = GridBagConstraints.EAST; 
+    gbc.insets = new Insets(30, 40, 10, 15); 
+    gbc.weighty = 0.3;
+    gbc.weightx = 0.5;
     welcomePanel.add(logoLabel, gbc);
     
     
-    JLabel welcomeLabel = new JLabel("<html>Welcome to Krich Andrei <br>"
-    + "<div style='text-align:center;'>Internet Cafe!</div>"
-    + "</html>");
-    welcomeLabel.setFont(new Font("Algerian", Font.BOLD, 18));
+    JLabel welcomeLabel = new JLabel("<html><div style='text-align: center;'>Welcome to Krich Andrei <br>"
+    + "Internet Cafe!</div></html>");
+    welcomeLabel.setFont(new Font("Algerian", Font.BOLD, 16));
 
     gbc.gridx = 1; 
     gbc.gridy = 0; 
-    gbc.anchor = GridBagConstraints.NORTHEAST; 
-    gbc.insets = new Insets(10, 10, 20, 5);
+    gbc.anchor = GridBagConstraints.WEST; 
+    gbc.insets = new Insets(30, 15, 10, 40);
+    gbc.weightx = 0.5;
     welcomePanel.add(welcomeLabel, gbc);
 
     
@@ -66,8 +75,10 @@ public class CafeGUI extends JFrame {
     gbc.gridx = 0;
     gbc.gridy = 2; 
     gbc.gridwidth = 2; 
-    gbc.anchor = GridBagConstraints.CENTER;
-    gbc.insets = new Insets(50, 0, 0, 0);
+    gbc.anchor = GridBagConstraints.NORTH;
+    gbc.insets = new Insets(10, 0, 40, 0);
+    gbc.weighty = 0.7;
+    gbc.weightx = 0;
     welcomePanel.add(continueBtn, gbc);
 
     continueBtn.addActionListener(e -> cardLayout.show(mainPanel, "Login"));

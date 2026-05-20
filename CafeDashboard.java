@@ -134,6 +134,14 @@ public class CafeDashboard extends JFrame {
     confirmBtn.addActionListener(e -> {
         try {
             int hours = Integer.parseInt(hoursField.getText().trim());
+            if (hours <= 0) {
+        JOptionPane.showMessageDialog(this, "Please enter a positive number of hours.");
+        return;
+    }
+    if (hours > 24) { 
+        JOptionPane.showMessageDialog(this, "Maximum allowed is 24 hours.");
+        return;
+    }
             user.addSession(hours);
             int cost = user.calculateCost();
             user.addCost(cost);
