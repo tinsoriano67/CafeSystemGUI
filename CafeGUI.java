@@ -39,7 +39,6 @@ public class CafeGUI extends JFrame {
     if (imgURL != null) {
         logoIcon = new ImageIcon(imgURL);
     } else {
-        // Fallback: Ito ang luma mong code kung sakaling hindi mahanap sa package resources
         logoIcon = new ImageIcon("logo.png");
     }
 
