@@ -33,7 +33,7 @@ public class CafeDashboard extends JFrame {
 
         
         JPanel sidebar = new JPanel(new GridLayout(0, 1));
-        JButton timeBtn = new JButton("Time/Package");
+        JButton timeBtn = new JButton("Time");
         JButton foodBtn = new JButton("Food/Drinks");
         JButton printBtn = new JButton("Print/Photocopy");
         JButton balanceBtn = new JButton("Balance Tracker");
